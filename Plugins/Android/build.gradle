@@ -1,0 +1,40 @@
+repositories {
+    flatDir {
+       dirs 'libs'
+    }
+    //Anythink(Core)
+    maven {
+        url "https://jfrog.anythinktech.com/artifactory/overseas_sdk"
+    }
+
+    //Pangle
+    maven {
+        url "https://artifact.bytedance.com/repository/pangle"
+    }
+
+}
+dependencies {
+    //Anythink (Necessary)
+    api "com.anythink.sdk:core-tpn:6.5.10"
+    api "com.anythink.sdk:nativead-tpn:6.5.10"
+    api "com.anythink.sdk:banner-tpn:6.5.10"
+    api "com.anythink.sdk:interstitial-tpn:6.5.10"
+    api "com.anythink.sdk:rewardedvideo-tpn:6.5.10"
+    api "com.anythink.sdk:splash-tpn:6.5.10"
+
+    //Androidx (Necessary)
+    api "androidx.appcompat:appcompat:1.6.1"
+    api "androidx.browser:browser:1.4.0"
+
+    //Pangle
+    api "com.anythink.sdk:adapter-tpn-pangle:6.5.10"
+    api "com.pangle.global:pag-sdk:7.2.0.6"
+    api "com.google.android.gms:play-services-ads-identifier:18.2.0"
+
+    //Admob
+    api "com.anythink.sdk:adapter-tpn-admob:6.5.10"
+    api "com.google.android.gms:play-services-ads:24.4.0"
+
+    //Tramini
+    api "com.anythink.sdk:tramini-plugin-tpn:6.5.10"
+}

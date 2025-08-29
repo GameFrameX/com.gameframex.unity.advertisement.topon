@@ -1,0 +1,17 @@
+{
+  "name": "GameFrameX.Advertisement.TopOn.Runtime",
+  "rootNamespace": "GameFrameX.Advertisement.TopOn.Runtime",
+  "references": [
+    "GameFrameX.Advertisement.Runtime",
+    "GameFrameX.Runtime"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

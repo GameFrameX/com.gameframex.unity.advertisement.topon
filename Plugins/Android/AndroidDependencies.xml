@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dependencies>
+    <repositories>
+        <!-- TopOn Core -->
+        <repository>https://jfrog.anythinktech.com/artifactory/overseas_sdk</repository>
+
+        <!-- Maio -->
+        <repository>https://imobile-maio.github.io/maven</repository>
+
+        <!-- IronSource -->
+        <repository>https://android-sdk.is.com/</repository>
+
+        <!-- PubNative -->
+        <repository>https://verve.jfrog.io/artifactory/verve-gradle-release</repository>
+
+        <!-- TaurusX -->
+        <repository>https://bitbucket.org/sdkcenter/sdkcenter/raw/release</repository>
+
+        <!-- Smaato -->
+        <repository>https://s3.amazonaws.com/smaato-sdk-releases/</repository>
+
+        <!-- Pangle -->
+        <repository>https://artifact.bytedance.com/repository/pangle</repository>
+
+        <!-- Huawei -->
+        <repository>https://developer.huawei.com/repo/</repository>
+
+        <!-- Mintegral -->
+        <repository>https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea</repository>
+
+        <!-- BidMachine -->
+        <repository>https://artifactory.bidmachine.io/bidmachine</repository>
+
+        <!-- Chartboost -->
+        <repository>https://cboost.jfrog.io/artifactory/chartboost-ads</repository>
+        <repository>https://cboost.jfrog.io/artifactory/chartboost-mediation</repository>
+
+        <!-- Ogury -->
+        <repository>https://maven.ogury.co</repository>
+    </repositories>
+
+    <androidPackages>
+        <!-- TopOn Core SDK -->
+        <androidPackage spec="com.anythink.sdk:core-tpn:6.5.10"/>
+        <androidPackage spec="com.anythink.sdk:nativead-tpn:6.5.10"/>
+        <androidPackage spec="com.anythink.sdk:banner-tpn:6.5.10"/>
+        <androidPackage spec="com.anythink.sdk:interstitial-tpn:6.5.10"/>
+        <androidPackage spec="com.anythink.sdk:rewardedvideo-tpn:6.5.10"/>
+        <androidPackage spec="com.anythink.sdk:splash-tpn:6.5.10"/>
+
+        <!-- AndroidX Dependencies -->
+        <androidPackage spec="androidx.appcompat:appcompat:1.6.1"/>
+        <androidPackage spec="androidx.browser:browser:1.4.0"/>
+
+        <!-- Maio -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-maio:6.5.10"/>
+        <androidPackage spec="com.maio:android-sdk:1.1.16"/>
+
+        <!-- StartApp -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-startapp:6.5.10"/>
+        <androidPackage spec="com.startapp:inapp-sdk:5.0.2"/>
+
+        <!-- Vungle -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-vungle:6.5.10"/>
+        <androidPackage spec="com.vungle:vungle-ads:7.5.0"/>
+
+        <!-- UnityAds -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-unityads:6.5.10"/>
+        <androidPackage spec="com.unity3d.ads:unity-ads:4.14.0"/>
+
+        <!-- IronSource -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-ironsource:6.5.10"/>
+        <androidPackage spec="com.ironsource.sdk:mediationsdk:8.7.0"/>
+
+        <!-- Bigo -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-bigo:6.5.10"/>
+        <androidPackage spec="com.bigossp:bigo-ads:5.3.0"/>
+
+        <!-- PubNative -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-pubnative:6.5.10"/>
+        <androidPackage spec="net.pubnative:hybid.sdk:3.3.0"/>
+
+        <!-- Xiaomi -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-xiaomi:6.5.10"/>
+        <androidPackage spec="com.mi.ads:columbus-sdk:3.5.1.9"/>
+
+        <!-- TaurusX -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-taurusx:6.5.10"/>
+        <androidPackage spec="com.taurusx.tax:ads:1.6.2"/>
+
+        <!-- Smaato -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-smaato:6.5.10"/>
+        <androidPackage spec="com.smaato.android.sdk:smaato-sdk:22.7.2"/>
+        <androidPackage spec="com.smaato.android.sdk:smaato-sdk-banner:22.7.2"/>
+        <androidPackage spec="com.smaato.android.sdk:smaato-sdk-interstitial:22.7.2"/>
+        <androidPackage spec="com.smaato.android.sdk:smaato-sdk-rewarded-ads:22.7.2"/>
+        <androidPackage spec="com.smaato.android.sdk:smaato-sdk-native:22.7.2"/>
+        <androidPackage spec="com.smaato.android.sdk:smaato-sdk-in-app-bidding:22.7.2"/>
+
+        <!-- Pangle -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-pangle:6.5.10"/>
+        <androidPackage spec="com.pangle.global:pag-sdk:7.2.0.6"/>
+
+        <!-- Amazon -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-amazon:6.5.10"/>
+        <androidPackage spec="com.amazon.android:aps-sdk:11.0.1"/>
+        <androidPackage spec="com.iabtcf:iabtcf-decoder:2.0.10"/>
+
+        <!-- Kwai -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-kwai:6.5.10"/>
+        <androidPackage spec="io.github.kwainetwork:adApi:1.2.19"/>
+        <androidPackage spec="io.github.kwainetwork:adImpl:1.2.19"/>
+        <androidPackage spec="androidx.media3:media3-exoplayer:1.0.0-alpha01"/>
+        <androidPackage spec="com.google.android.material:material:1.2.1"/>
+        <androidPackage spec="androidx.annotation:annotation:1.2.0"/>
+        <androidPackage spec="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10"/>
+
+        <!-- Kidoz -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-kidoz:6.5.10"/>
+        <androidPackage spec="net.kidoz.sdk:kidoz-android-native:8.9.7"/>
+        <androidPackage spec="org.greenrobot:eventbus:3.3.1"/>
+
+        <!-- Huawei -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-huawei:6.5.10"/>
+        <androidPackage spec="com.huawei.hms:ads-lite:13.4.78.301"/>
+
+        <!-- Facebook -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-facebook:6.5.10"/>
+        <androidPackage spec="com.facebook.android:audience-network-sdk:6.20.0"/>
+
+        <!-- AdMob -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-admob:6.5.10"/>
+        <androidPackage spec="com.google.android.gms:play-services-ads:24.4.0"/>
+
+        <!-- InMobi -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-inmobi:6.5.10"/>
+        <androidPackage spec="com.inmobi.monetization:inmobi-ads-kotlin:10.8.2"/>
+
+        <!-- AppLovin -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-applovin:6.5.10"/>
+        <androidPackage spec="com.applovin:applovin-sdk:13.3.1"/>
+
+        <!-- Mintegral -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-mintegral:6.5.10"/>
+        <androidPackage spec="com.mbridge.msdk.oversea:mbridge_android_sdk:16.9.71"/>
+        <androidPackage spec="androidx.recyclerview:recyclerview:1.1.0"/>
+
+        <!-- BidMachine -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-bidmachine:6.5.10"/>
+        <androidPackage spec="io.bidmachine:ads:3.1.1"/>
+
+        <!-- Chartboost -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-chartboost:6.5.10"/>
+        <androidPackage spec="com.chartboost:chartboost-sdk:9.8.3"/>
+        <androidPackage spec="com.chartboost:chartboost-mediation-sdk:4.9.2"/>
+        <androidPackage spec="com.chartboost:chartboost-mediation-adapter-chartboost:4.9.8.1.0"/>
+        <androidPackage spec="com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"/>
+        <androidPackage spec="com.squareup.okhttp3:logging-interceptor:4.10.0"/>
+        <androidPackage spec="com.squareup.okhttp3:okhttp:4.10.0"/>
+        <androidPackage spec="com.squareup.retrofit2:converter-scalars:2.9.0"/>
+        <androidPackage spec="com.squareup.retrofit2:retrofit:2.9.0"/>
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"/>
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1"/>
+
+        <!-- MyTarget -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-mytarget:6.5.10"/>
+        <androidPackage spec="com.my.target:mytarget-sdk:5.27.1"/>
+
+        <!-- Yandex -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-yandex:6.5.10"/>
+        <androidPackage spec="com.yandex.android:mobileads:7.12.2"/>
+
+        <!-- Fyber -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-fyber:6.5.10"/>
+        <androidPackage spec="com.fyber:marketplace-sdk:8.3.7"/>
+
+        <!-- Ogury -->
+        <androidPackage spec="com.anythink.sdk:adapter-tpn-ogury:6.5.10"/>
+        <androidPackage spec="co.ogury:ogury-sdk:6.1.0"/>
+
+        <!-- Tramini Plugin -->
+        <androidPackage spec="com.anythink.sdk:tramini-plugin-tpn:6.5.10"/>
+
+        <!-- Google Play Services -->
+        <androidPackage spec="com.google.android.gms:play-services-ads-identifier:18.2.0"/>
+        <androidPackage spec="com.google.android.gms:play-services-basement:18.1.0"/>
+        <androidPackage spec="com.google.android.gms:play-services-appset:16.0.2"/>
+    </androidPackages>
+</dependencies>

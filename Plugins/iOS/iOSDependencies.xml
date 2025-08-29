@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dependencies>
+    <iosPods>
+        <!-- TopOn SDK and Adapters -->
+        <iosPod name="TPNiOS" version="6.4.91" minTargetSdk="13.0"/>
+        <iosPod name="TPNAdmobSDKAdapter" version="6.4.91.2" minTargetSdk="13.0"/>
+        <iosPod name="TPNPangleSDKAdapter" version="6.4.91" minTargetSdk="13.0"/>
+        <iosPod name="TPNMaioSDKAdapter" version="6.4.91" minTargetSdk="13.0"/>
+        <iosPod name="TPNStartAppSDKAdapter" version="6.4.91" minTargetSdk="13.0"/>
+        <iosPod name="TPNVungleSDKAdapter" version="6.4.91.2" minTargetSdk="13.0"/>
+        <iosPod name="TPNUnityAdsSDKAdapter" version="6.4.91.2" minTargetSdk="13.0"/>
+        <iosPod name="TPNIronSourceSDKAdapter" version="6.4.91.2" minTargetSdk="13.0"/>
+        <iosPod name="TPNBigoSDKAdapter" version="6.4.91.2" minTargetSdk="13.0"/>
+        <iosPod name="TPNPubNativeSDKAdapter" version="6.4.91.2" minTargetSdk="13.0"/>
+        <iosPod name="TPNSmaatoSDKAdapter" version="6.4.91" minTargetSdk="13.0"/>
+        <iosPod name="TPNKwaiSDKAdapter" version="6.4.91.1" minTargetSdk="13.0"/>
+        <iosPod name="TPNKidozSDKAdapter" version="6.4.91" minTargetSdk="13.0"/>
+        <iosPod name="TPNFacebookSDKAdapter" version="6.4.91.2" minTargetSdk="13.0"/>
+        <iosPod name="TPNInmobiSDKAdapter" version="6.4.91.2" minTargetSdk="13.0"/>
+        <iosPod name="TPNApplovinSDKAdapter" version="6.4.91" minTargetSdk="13.0"/>
+        <iosPod name="TPNMintegralSDKAdapter" version="6.4.91.2" minTargetSdk="13.0"/>
+        <iosPod name="TPNBidMachineSDKAdapter" version="6.4.91.2" minTargetSdk="13.0"/>
+        <iosPod name="TPNChartboostSDKAdapter" version="6.4.91" minTargetSdk="13.0"/>
+        <iosPod name="TPNMyTargetSDKAdapter" version="6.4.91" minTargetSdk="13.0"/>
+        <iosPod name="TPNYandexSDKAdapter" version="6.4.91.2" minTargetSdk="13.0"/>
+        <iosPod name="TPNFyberSDKAdapter" version="6.4.91" minTargetSdk="13.0"/>
+        <iosPod name="TPNOgurySDKAdapter" version="6.4.91" minTargetSdk="13.0"/>
+
+        <!-- Additional Dependencies -->
+        <iosPod name="ATOM-Standalone" version="3.7.0" minTargetSdk="13.0"/>
+        <iosPod name="AppLovinSDK" minTargetSdk="13.0"/>
+        <iosPod name="HyBid" version="3.6.1" minTargetSdk="13.0"/>
+        <iosPod name="InMobiSDK" version="10.8.6" minTargetSdk="13.0"/>
+        <iosPod name="KwaiAdsSDK" version="1.2.1" minTargetSdk="13.0"/>
+        <iosPod name="OMSDK_Appodeal" version="1.5.2" minTargetSdk="13.0"/>
+        <iosPod name="StartAppSDK" version="4.10.4" minTargetSdk="13.0"/>
+        <iosPod name="smaato-ios-sdk" version="22.9.3" minTargetSdk="13.0"/>
+    </iosPods>
+    
+    <iosFrameworks>
+        <!-- System Frameworks for TopOn SDK -->
+        <iosFramework name="StoreKit.framework"/>
+        <iosFramework name="DeviceCheck.framework"/>
+        <iosFramework name="CoreTelephony.framework"/>
+        <iosFramework name="CoreMotion.framework"/>
+        <iosFramework name="CoreMedia.framework"/>
+        <iosFramework name="CoreML.framework"/>
+        <iosFramework name="CoreHaptics.framework"/>
+        <iosFramework name="AudioToolbox.framework"/>
+        <iosFramework name="AdSupport.framework"/>
+        <iosFramework name="AVFoundation.framework"/>
+    </iosFrameworks>
+    
+    <iosLibraries>
+        <!-- System Libraries (TBD files) for TopOn SDK -->
+        <iosLibrary name="libicucore.tbd"/>
+        <iosLibrary name="libz.tbd"/>
+        <iosLibrary name="libstdc++.tbd"/>
+        <iosLibrary name="libsqlite3.tbd"/>
+        <iosLibrary name="libxml2.tbd"/>
+        <iosLibrary name="libresolv.9.tbd"/>
+        <iosLibrary name="libbz2.tbd"/>
+    </iosLibraries>
+</dependencies>
