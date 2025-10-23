@@ -1,8 +1,9 @@
 //
 //  GameFrameXAdvertisementTopOnViewController.m
-//  Unity-iPhone
 //
-//  Created by jiangjiayi on 2025/8/25.
+//  Created by GameFrameX(AlianBlank) on 2025/8/25.
+//  https://github.com/gameframex
+//  https://github.com/alianblank
 //
 
 #import "GameFrameXAdvertisementTopOnViewController.h"
@@ -194,38 +195,38 @@ NSString * const kTopOnRewardVideoClick = @"RewardVideoClick";
     // 添加广告信息（模拟Java侧的adInfo结构）
     if (adInfo) {
         // 基础广告信息
-        [jsonDict setObject:(adInfo[@"networkName"] ? adInfo[@"networkName"] : @"unknown") forKey:@"networkName"];
+        [jsonDict setObject:(adInfo[@"network_name"] ? adInfo[@"network_name"] : @"unknown") forKey:@"networkName"];
         [jsonDict setObject:(placementId ? placementId : @"") forKey:@"adId"];
-        [jsonDict setObject:@0 forKey:@"ecpm"];
-        [jsonDict setObject:@"" forKey:@"currency"];
-        [jsonDict setObject:@"" forKey:@"country"];
+        [jsonDict setObject:(adInfo[@"ecpm_level"] ? adInfo[@"ecpm_level"] : @0) forKey:@"ecpm"];
+        [jsonDict setObject:(adInfo[@"currency"] ? adInfo[@"currency"] : @"") forKey:@"currency"];
+        [jsonDict setObject:(adInfo[@"country"] ? adInfo[@"country"] : @"") forKey:@"country"];
         
         // 网络相关信息
-        [jsonDict setObject:@0 forKey:@"networkType"];
-        [jsonDict setObject:@"" forKey:@"networkPlacementId"];
-        [jsonDict setObject:@0 forKey:@"adNetworkType"];
-        [jsonDict setObject:@0 forKey:@"adNetworkFirmId"];
+        [jsonDict setObject:(adInfo[@"network_type"] ? adInfo[@"network_type"] : @"unknown") forKey:@"networkType"];
+        [jsonDict setObject:(adInfo[@"network_placement_id"] ? adInfo[@"network_placement_id"] : @"") forKey:@"networkPlacementId"];
+        [jsonDict setObject:(adInfo[@"placement_type"] ? adInfo[@"placement_type"] : @0) forKey:@"adNetworkType"];
+        [jsonDict setObject:(adInfo[@"network_firm_id"] ? adInfo[@"network_firm_id"] : @0) forKey:@"adNetworkFirmId"];
         
         // 广告格式和类型
-        [jsonDict setObject:@"" forKey:@"format"];
-        [jsonDict setObject:@"" forKey:@"adType"];
-        [jsonDict setObject:@"" forKey:@"adSourceId"];
+        [jsonDict setObject:(adInfo[@"adunit_format"] ? adInfo[@"adunit_format"] : @"") forKey:@"format"];
+        [jsonDict setObject:(adInfo[@"adunit_format"] ? adInfo[@"adunit_format"] : @"") forKey:@"adType"];
+        [jsonDict setObject:(adInfo[@"adsource_id"] ? adInfo[@"adsource_id"] : @"") forKey:@"adSourceId"];
         
         // 收益和竞价信息
-        [jsonDict setObject:@0.0 forKey:@"publisherRevenue"];
-        [jsonDict setObject:@"" forKey:@"ecpmPrecision"];
+        [jsonDict setObject:(adInfo[@"publisher_revenue"] ? adInfo[@"publisher_revenue"] : @0.0) forKey:@"publisherRevenue"];
+        [jsonDict setObject:(adInfo[@"precision"] ? adInfo[@"precision"] : @"") forKey:@"ecpmPrecision"];
         
         // 扩展信息
         [jsonDict setObject:@"{}" forKey:@"ext"];
         
         // 请求和响应信息
-        [jsonDict setObject:@"" forKey:@"requestId"];
-        [jsonDict setObject:@"" forKey:@"topOnAdFormat"];
+        [jsonDict setObject:(adInfo[@"req_id"] ? adInfo[@"req_id"] : @"") forKey:@"requestId"];
+        [jsonDict setObject:(adInfo[@"adunit_format"] ? adInfo[@"adunit_format"] : @"") forKey:@"topOnAdFormat"];
         
         // 高级功能信息
-        [jsonDict setObject:@(NO) forKey:@"isHeaderBidding"];
-        [jsonDict setObject:@"" forKey:@"segment"];
-        [jsonDict setObject:@"" forKey:@"scenario"];
+        [jsonDict setObject:(adInfo[@"adsource_isheaderbidding"] ? @([adInfo[@"adsource_isheaderbidding"] boolValue]) : @(NO)) forKey:@"isHeaderBidding"];
+        [jsonDict setObject:(adInfo[@"segment_id"] ? adInfo[@"segment_id"] : @0) forKey:@"segment"];
+        [jsonDict setObject:(adInfo[@"adunit_id"] ? adInfo[@"adunit_id"] : @"") forKey:@"scenario"];
     }
     
     NSError *jsonError;
