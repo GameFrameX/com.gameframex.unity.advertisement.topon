@@ -10,6 +10,7 @@ namespace GameFrameX.Advertisement.TopOn.Runtime
         private void Start()
         {
             _ = typeof(TopOnAdvertisementManager);
+            _ = typeof(TopOnAdvertisementBridgeLink);
         }
     }
 }
