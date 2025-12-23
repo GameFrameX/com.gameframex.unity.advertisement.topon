@@ -1,3 +1,16 @@
+# 1.0.0 (2025-12-23)
+
+
+### Bug Fixes
+
+* **广告:** 更新广告信息映射逻辑以匹配新的字段命名 ([72c286b](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/commit/72c286b60ece81737288037441c6ad3e483e1d9c))
+
+
+### Features
+
+* **ci:** change ci ([76a43c2](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/commit/76a43c22bac416e122a8a47c87d4642aae77d346))
+* **广告:** 添加TopOnAdvertisementBridgeLink类型引用 ([21a3839](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/commit/21a3839e5316e04e6d2b81b1b15959467b346507))
+
 # Changelog
 
 ## [1.0.0](https://github.com/GameFrameX/com.gameframex.unity.advertisement/tree/1.0.0) (2025-05-29)
