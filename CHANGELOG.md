@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/compare/1.0.0...1.1.0) (2026-01-27)
+
+
+### Features
+
+* **广告:** 为TopOn广告管理器添加Play方法 ([604a8a6](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/commit/604a8a62b6ab9c1e1d03290d99f7884eac6f01df))
+
 # 1.0.0 (2025-12-23)
 
 
