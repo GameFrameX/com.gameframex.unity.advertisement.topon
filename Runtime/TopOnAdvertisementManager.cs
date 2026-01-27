@@ -24,6 +24,11 @@ namespace GameFrameX.Advertisement.TopOn.Runtime
 #endif
         }
 
+        public override void Play(Action<bool> playResult, string customData = null)
+        {
+            instance.PlayRewardedVideoAd(m_adUnitId, playResult, customData);
+        }
+
         [UnityEngine.Scripting.Preserve]
         public override void Show(Action<string> success, Action<string> fail, Action<bool> onShowResult, string customData = null)
         {

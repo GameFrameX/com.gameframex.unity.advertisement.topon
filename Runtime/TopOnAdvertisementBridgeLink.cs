@@ -6,6 +6,7 @@
 
 using System;
 using System.Runtime.InteropServices;
+using GameFrameX.Runtime;
 using UnityEngine;
 
 namespace GameFrameX.Advertisement.TopOn.Runtime
@@ -311,6 +312,38 @@ namespace GameFrameX.Advertisement.TopOn.Runtime
                 default:
                     Debug.LogWarning($"未处理的消息类型: {messageType}");
                     break;
+            }
+        }
+
+        public void PlayRewardedVideoAd(string unitId, Action<bool> playResult, string customData)
+        {
+            if (IsAdReady(unitId, "reward"))
+            {
+                ShowRewardedVideoAd(unitId, (s) => { Log.Debug(s); }, (error) => { Log.Error($"激励视频加载失败:{unitId} error: {error}"); }, playResult, customData);
+            }
+            else
+            {
+                void LoadSuccess(string success)
+                {
+                    void ShowSuccess(string s)
+                    {
+                        Log.Debug(s);
+                    }
+
+                    void ShowFail(string error)
+                    {
+                        Log.Error($"激励视频加载失败:{unitId} error: {error}");
+                    }
+
+                    ShowRewardedVideoAd(unitId, ShowSuccess, ShowFail, playResult, customData);
+                }
+
+                void LoadFail(string error)
+                {
+                    playResult?.Invoke(false);
+                }
+
+                LoadRewardedVideoAd(unitId, LoadSuccess, LoadFail, customData);
             }
         }
     }
