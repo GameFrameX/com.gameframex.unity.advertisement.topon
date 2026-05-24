@@ -1,92 +1,110 @@
-# GameFrameX Unity Advertisement TopOn
+<div align="center">
+  <img src="https://download.alianblank.com/gameframex/gameframex_logo_320.png" alt="GameFrameX Logo" width="320" />
+</div>
 
-Unity TopOn广告SDK集成插件，提供完整的广告解决方案。
+# GameFrameX Unity Advertisement (TopOn)
 
-## 功能特性
+[![Version](https://img.shields.io/github/v/release/GameFrameX/com.gameframex.unity.advertisement.topon)](https://github.com/GameFrameX/com.gameframex.unity.advertisement.topon/releases)
+[![License](https://img.shields.io/github/license/GameFrameX/com.gameframex.unity.advertisement.topon)](LICENSE)
+[![Documentation](https://img.shields.io/badge/Documentation-online-blue)](https://gameframex.doc.alianblank.com)
 
-- 🎯 支持多种广告类型（横幅、插屏、激励视频、原生广告）
-- 📱 支持Android和iOS平台
-- 🔧 简单易用的API接口
-- 📊 完整的广告事件回调
-- 🛡️ 内置错误处理和重试机制
+All-in-One Solution for Indie Game Development · Empowering Indie Developers' Dreams
 
-## 支持的广告类型
+[Documentation](https://gameframex.doc.alianblank.com) · [Quick Start](#quick-start) · [Report Bug](https://github.com/GameFrameX/com.gameframex.unity.advertisement.topon/issues)
 
-- **横幅广告 (Banner)** - 页面底部或顶部的小型广告
-- **插屏广告 (Interstitial)** - 全屏广告，适合在关卡间隙显示
-- **激励视频 (Rewarded Video)** - 用户观看完整视频后获得奖励
-- **原生广告 (Native)** - 与应用内容融合的自定义广告
+**Language**: **English** | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
 
-## 安装方式
+---
 
-### 通过Unity Package Manager安装
+## Project Overview
 
-1. 打开Unity编辑器
-2. 选择 `Window` > `Package Manager`
-3. 点击左上角的 `+` 按钮
-4. 选择 `Add package from git URL`
-5. 输入包的Git URL或本地路径
+Unity TopOn Ad SDK integration plugin, providing a complete advertising solution for GameFrameX.
 
-### 手动安装
+## Features
 
-1. 下载或克隆此仓库
-2. 将整个文件夹复制到你的Unity项目的 `Packages` 目录下
-3. Unity会自动识别并导入包
+- Support for multiple ad types (Banner, Interstitial, Rewarded Video, Native)
+- Android and iOS platform support
+- Simple and easy-to-use API
+- Complete ad event callbacks
+- Built-in error handling and retry mechanism
 
-## 快速开始
+## Supported Ad Types
 
-### 1. 初始化SDK
+- **Banner** - Small ads at the top or bottom of the page
+- **Interstitial** - Full-screen ads, suitable for displaying between levels
+- **Rewarded Video** - Users receive rewards after watching the complete video
+- **Native** - Custom ads that blend with app content
+
+## Installation
+
+### Install via Unity Package Manager
+
+1. Open Unity Editor
+2. Select `Window` > `Package Manager`
+3. Click the `+` button in the top left
+4. Select `Add package from git URL`
+5. Enter the package Git URL or local path
+
+### Manual Installation
+
+1. Download or clone this repository
+2. Copy the entire folder to the `Packages` directory of your Unity project
+3. Unity will automatically recognize and import the package
+
+## Quick Start
+
+### 1. Initialize SDK
 
 ```csharp
 using GameFrameX.Advertisement.TopOn.Runtime;
 
-// 在游戏启动时初始化
+// Initialize when the game starts
 TopOnAdvertisement.Initialize("your_app_id", "your_app_key");
 ```
 
-### 2. 加载和显示横幅广告
+### 2. Load and Display Banner Ads
 
 ```csharp
-// 加载横幅广告
+// Load banner ad
 TopOnAdvertisement.LoadBanner("banner_placement_id");
 
-// 显示横幅广告
+// Show banner ad
 TopOnAdvertisement.ShowBanner();
 
-// 隐藏横幅广告
+// Hide banner ad
 TopOnAdvertisement.HideBanner();
 ```
 
-### 3. 加载和显示插屏广告
+### 3. Load and Display Interstitial Ads
 
 ```csharp
-// 加载插屏广告
+// Load interstitial ad
 TopOnAdvertisement.LoadInterstitial("interstitial_placement_id");
 
-// 显示插屏广告
+// Show interstitial ad
 if (TopOnAdvertisement.IsInterstitialReady())
 {
     TopOnAdvertisement.ShowInterstitial();
 }
 ```
 
-### 4. 加载和显示激励视频
+### 4. Load and Display Rewarded Video
 
 ```csharp
-// 加载激励视频
+// Load rewarded video
 TopOnAdvertisement.LoadRewardedVideo("rewarded_placement_id");
 
-// 显示激励视频
+// Show rewarded video
 if (TopOnAdvertisement.IsRewardedVideoReady())
 {
     TopOnAdvertisement.ShowRewardedVideo();
 }
 ```
 
-## 事件回调
+## Event Callbacks
 
 ```csharp
-// 注册广告事件监听
+// Register ad event listeners
 TopOnAdvertisement.OnBannerLoaded += OnBannerLoaded;
 TopOnAdvertisement.OnBannerFailed += OnBannerFailed;
 TopOnAdvertisement.OnInterstitialLoaded += OnInterstitialLoaded;
@@ -96,106 +114,93 @@ TopOnAdvertisement.OnRewardedVideoRewarded += OnRewardedVideoRewarded;
 
 private void OnBannerLoaded()
 {
-    Debug.Log("横幅广告加载成功");
+    Debug.Log("Banner ad loaded successfully");
 }
 
 private void OnBannerFailed(string error)
 {
-    Debug.LogError($"横幅广告加载失败: {error}");
+    Debug.LogError($"Banner ad failed to load: {error}");
 }
 
 private void OnRewardedVideoRewarded(string placementId, string rewardName, int rewardAmount)
 {
-    Debug.Log($"获得奖励: {rewardName} x {rewardAmount}");
-    // 在这里给玩家发放奖励
+    Debug.Log($"Reward earned: {rewardName} x {rewardAmount}");
+    // Grant reward to the player here
 }
 ```
 
-## 平台配置
+## Platform Configuration
 
-### Android配置
+### Android Configuration
 
-插件已包含必要的Android依赖配置，位于 `Plugins/Android/AndroidDependencies.xml`。
+The plugin includes necessary Android dependency configuration in `Plugins/Android/AndroidDependencies.xml`.
 
-确保你的项目设置：
-- Target API Level: 28或更高
-- 启用 `Custom Main Gradle Template`
-- 启用 `Custom Gradle Properties Template`
+Ensure your project settings:
 
-### iOS配置
+- Target API Level: 28 or higher
+- Enable `Custom Main Gradle Template`
+- Enable `Custom Gradle Properties Template`
 
-iOS平台的配置文件位于 `Plugins/iOS/` 目录下。
+### iOS Configuration
 
-确保在Xcode项目中：
-- 添加必要的系统框架
-- 配置App Transport Security设置
-- 添加广告标识符权限
+iOS platform configuration files are located in the `Plugins/iOS/` directory.
 
-## 测试模式
+Ensure in your Xcode project:
 
-在开发阶段，建议启用测试模式：
+- Add necessary system frameworks
+- Configure App Transport Security settings
+- Add ad identifier permission
+
+## Test Mode
+
+During development, it is recommended to enable test mode:
 
 ```csharp
-// 启用测试模式（仅在开发时使用）
+// Enable test mode (only use during development)
 TopOnAdvertisement.SetTestMode(true);
 ```
 
-**注意：发布前务必关闭测试模式！**
+**Note: Make sure to disable test mode before release!**
 
-## 常见问题
+## FAQ
 
-### Q: 广告无法显示？
-A: 请检查：
-- 网络连接是否正常
-- 广告位ID是否正确
-- 是否在正确的时机调用显示方法
-- 是否已正确初始化SDK
+### Q: Ads not displaying?
 
-### Q: iOS构建失败？
-A: 请确保：
-- Xcode版本兼容
-- 已添加必要的系统框架
-- 检查代码签名设置
+A: Please check:
 
-### Q: Android构建失败？
-A: 请检查：
-- Gradle版本兼容性
-- 依赖冲突问题
-- ProGuard配置
+- Network connection is normal
+- Ad placement ID is correct
+- Display method is called at the right time
+- SDK is properly initialized
 
-## API文档
+### Q: iOS build failed?
 
-详细的API文档请参考：[API Documentation](./Documentation~/API.md)
+A: Please ensure:
 
-## 更新日志
+- Xcode version is compatible
+- Necessary system frameworks are added
+- Check code signing settings
+
+### Q: Android build failed?
+
+A: Please check:
+
+- Gradle version compatibility
+- Dependency conflicts
+- ProGuard configuration
+
+## Changelog
+
+### v1.1.0
+
+- Added Play method overload with AdvertisementPlayOption parameter
 
 ### v1.0.0
-- 初始版本发布
-- 支持横幅、插屏、激励视频广告
-- 支持Android和iOS平台
 
-## 技术支持
+- Initial release
+- Support for banner, interstitial, and rewarded video ads
+- Support for Android and iOS platforms
 
-如果遇到问题或需要技术支持，请：
+## License
 
-1. 查看[常见问题](#常见问题)部分
-2. 提交Issue到项目仓库
-3. 联系技术支持团队
-
-## 许可证
-
-本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
-
-## 贡献指南
-
-欢迎提交Pull Request来改进这个项目！
-
-1. Fork本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启Pull Request
-
----
-
-**GameFrameX Unity Advertisement TopOn** - 让广告集成变得简单高效！
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
