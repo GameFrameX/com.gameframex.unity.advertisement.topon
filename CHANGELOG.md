@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/compare/1.1.0...1.2.0) (2026-05-24)
+
+
+### Features
+
+* **广告:** 添加支持AdvertisementPlayOption参数的Play方法重载 ([cb97d3f](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/commit/cb97d3fa89409d975fcec0d9b1e25c3c4790df7a))
+
 # [1.1.0](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/compare/1.0.0...1.1.0) (2026-01-27)
 
 
