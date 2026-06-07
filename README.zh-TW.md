@@ -60,35 +60,36 @@ Unity TopOn 廣告 SDK 整合插件，為 GameFrameX 提供完整的廣告解決
 
 ### 安裝
 
-編輯 Unity 專案的 `Packages/manifest.json`，添加 `scopedRegistries` 部分：
+選擇以下任一方式：
 
-```json
-{
-  "scopedRegistries": [
-    {
-      "name": "GameFrameX",
-      "url": "https://gameframex.upm.alianblank.uk",
-      "scopes": [
-        "com.gameframex"
-      ]
-    }
-  ]
-}
-```
+1. 編輯 Unity 專案的 `Packages/manifest.json`，添加 `scopedRegistries` 部分：
+   ```json
+   {
+     "scopedRegistries": [
+       {
+         "name": "GameFrameX",
+         "url": "https://gameframex.upm.alianblank.uk",
+         "scopes": [
+           "com.gameframex"
+         ]
+       }
+     ],
+     "dependencies": {
+       "com.gameframex.unity.advertisement.topon": "1.2.0"
+     }
+   }
+   ```
 
-`scopes` 控制哪些套件透過此註冊表解析。只有以 `com.gameframex` 開頭的套件才會從這個註冊表取得。
+   `scopes` 控制哪些套件透過此註冊表解析。只有以 `com.gameframex` 開頭的套件才會從這個註冊表取得。
 
-Then add the package to `dependencies`:
-
-```json
-{
-  "dependencies": {
-    "com.gameframex.unity.advertisement.topon": "1.2.0"
-  }
-}
-```
-
-
+2. 直接在 `manifest.json` 的 `dependencies` 節點下添加以下內容：
+   ```json
+   {
+      "com.gameframex.unity.advertisement.topon": "https://github.com/gameframex/com.gameframex.unity.advertisement.topon.git"
+   }
+   ```
+3. 在 Unity 的 `Package Manager` 中使用 `Git URL` 的方式添加庫，地址為：`https://github.com/gameframex/com.gameframex.unity.advertisement.topon.git`
+4. 直接下載倉庫放置到 Unity 專案的 `Packages` 目錄下，會自動載入識別。
 ## 事件回調
 
 ```csharp
