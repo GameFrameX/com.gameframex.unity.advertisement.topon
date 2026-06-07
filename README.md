@@ -40,22 +40,6 @@ Unity TopOn Ad SDK integration plugin, providing a complete advertising solution
 - **Rewarded Video** - Users receive rewards after watching the complete video
 - **Native** - Custom ads that blend with app content
 
-## Installation
-
-### Install via Unity Package Manager
-
-1. Open Unity Editor
-2. Select `Window` > `Package Manager`
-3. Click the `+` button in the top left
-4. Select `Add package from git URL`
-5. Enter the package Git URL or local path
-
-### Manual Installation
-
-1. Download or clone this repository
-2. Copy the entire folder to the `Packages` directory of your Unity project
-3. Unity will automatically recognize and import the package
-
 ## Quick Start
 
 ### Installation
@@ -188,6 +172,21 @@ A: Please check:
 - Support for banner, interstitial, and rewarded video ads
 - Support for Android and iOS platforms
 
+
+## Dependencies
+
+| Package | Description |
+|---------|-------------|
+| (无) | - |
+
+
+## Documentation & Resources
+
+- [Documentation](https://gameframex.doc.alianblank.com)
+
+## Community & Support
+
+- QQ Group: 467608841 / 233840761
 ## License
 
 See [LICENSE.md](LICENSE.md) for license information.
