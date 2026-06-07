@@ -58,53 +58,36 @@ Unity TopOn Ad SDK integration plugin, providing a complete advertising solution
 
 ## Quick Start
 
-### 1. Initialize SDK
+### Installation
 
-```csharp
-using GameFrameX.Advertisement.TopOn.Runtime;
+Edit your Unity project's `Packages/manifest.json` and add the `scopedRegistries` section:
 
-// Initialize when the game starts
-TopOnAdvertisement.Initialize("your_app_id", "your_app_key");
-```
-
-### 2. Load and Display Banner Ads
-
-```csharp
-// Load banner ad
-TopOnAdvertisement.LoadBanner("banner_placement_id");
-
-// Show banner ad
-TopOnAdvertisement.ShowBanner();
-
-// Hide banner ad
-TopOnAdvertisement.HideBanner();
-```
-
-### 3. Load and Display Interstitial Ads
-
-```csharp
-// Load interstitial ad
-TopOnAdvertisement.LoadInterstitial("interstitial_placement_id");
-
-// Show interstitial ad
-if (TopOnAdvertisement.IsInterstitialReady())
+```json
 {
-    TopOnAdvertisement.ShowInterstitial();
+  "scopedRegistries": [
+    {
+      "name": "GameFrameX",
+      "url": "https://gameframex.upm.alianblank.uk",
+      "scopes": [
+        "com.gameframex"
+      ]
+    }
+  ]
 }
 ```
 
-### 4. Load and Display Rewarded Video
+`scopes` controls which packages are resolved through this registry. Only packages whose names start with `com.gameframex` will be fetched from it.
 
-```csharp
-// Load rewarded video
-TopOnAdvertisement.LoadRewardedVideo("rewarded_placement_id");
+Then add the package to `dependencies`:
 
-// Show rewarded video
-if (TopOnAdvertisement.IsRewardedVideoReady())
+```json
 {
-    TopOnAdvertisement.ShowRewardedVideo();
+  "dependencies": {
+    "com.gameframex.unity.advertisement.topon": "1.2.0"
+  }
 }
 ```
+
 
 ## Event Callbacks
 

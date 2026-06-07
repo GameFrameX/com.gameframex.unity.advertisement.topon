@@ -58,53 +58,36 @@ Unity TopOn広告SDK統合プラグイン。GameFrameX向けの完全な広告�
 
 ## クイックスタート
 
-### 1. SDKの初期化
+### インストール
 
-```csharp
-using GameFrameX.Advertisement.TopOn.Runtime;
+Unity プロジェクトの `Packages/manifest.json` を編集し、`scopedRegistries` セクションを追加してください：
 
-// ゲーム起動時に初期化
-TopOnAdvertisement.Initialize("your_app_id", "your_app_key");
-```
-
-### 2. バナー広告の読み込みと表示
-
-```csharp
-// バナー広告を読み込み
-TopOnAdvertisement.LoadBanner("banner_placement_id");
-
-// バナー広告を表示
-TopOnAdvertisement.ShowBanner();
-
-// バナー広告を非表示
-TopOnAdvertisement.HideBanner();
-```
-
-### 3. インタースティシャル広告の読み込みと表示
-
-```csharp
-// インタースティシャル広告を読み込み
-TopOnAdvertisement.LoadInterstitial("interstitial_placement_id");
-
-// インタースティシャル広告を表示
-if (TopOnAdvertisement.IsInterstitialReady())
+```json
 {
-    TopOnAdvertisement.ShowInterstitial();
+  "scopedRegistries": [
+    {
+      "name": "GameFrameX",
+      "url": "https://gameframex.upm.alianblank.uk",
+      "scopes": [
+        "com.gameframex"
+      ]
+    }
+  ]
 }
 ```
 
-### 4. リワードビデオの読み込みと表示
+`scopes` は、どのパッケージをこのレジストリから解決するかを制御します。`com.gameframex` で始まるパッケージのみがこのレジストリから取得されます。
 
-```csharp
-// リワードビデオを読み込み
-TopOnAdvertisement.LoadRewardedVideo("rewarded_placement_id");
+Then add the package to `dependencies`:
 
-// リワードビデオを表示
-if (TopOnAdvertisement.IsRewardedVideoReady())
+```json
 {
-    TopOnAdvertisement.ShowRewardedVideo();
+  "dependencies": {
+    "com.gameframex.unity.advertisement.topon": "1.2.0"
+  }
 }
 ```
+
 
 ## イベントコールバック
 

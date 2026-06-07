@@ -58,53 +58,36 @@ Unity TopOn 광고 SDK 통합 플러그인. GameFrameX를 위한 완전한 광�
 
 ## 빠른 시작
 
-### 1. SDK 초기화
+### 설치
 
-```csharp
-using GameFrameX.Advertisement.TopOn.Runtime;
+Unity 프로젝트의 `Packages/manifest.json`을 편집하여 `scopedRegistries` 섹션을 추가하세요:
 
-// 게임 시작 시 초기화
-TopOnAdvertisement.Initialize("your_app_id", "your_app_key");
-```
-
-### 2. 배너 광고 로드 및 표시
-
-```csharp
-// 배너 광고 로드
-TopOnAdvertisement.LoadBanner("banner_placement_id");
-
-// 배너 광고 표시
-TopOnAdvertisement.ShowBanner();
-
-// 배너 광고 숨기기
-TopOnAdvertisement.HideBanner();
-```
-
-### 3. 전면 광고 로드 및 표시
-
-```csharp
-// 전면 광고 로드
-TopOnAdvertisement.LoadInterstitial("interstitial_placement_id");
-
-// 전면 광고 표시
-if (TopOnAdvertisement.IsInterstitialReady())
+```json
 {
-    TopOnAdvertisement.ShowInterstitial();
+  "scopedRegistries": [
+    {
+      "name": "GameFrameX",
+      "url": "https://gameframex.upm.alianblank.uk",
+      "scopes": [
+        "com.gameframex"
+      ]
+    }
+  ]
 }
 ```
 
-### 4. 리워드 영상 로드 및 표시
+`scopes`는 이 레지스트리를 통해 어떤 패키지를 해석할지 제어합니다. `com.gameframex`로 시작하는 패키지만 이 레지스트리에서 가져옵니다.
 
-```csharp
-// 리워드 영상 로드
-TopOnAdvertisement.LoadRewardedVideo("rewarded_placement_id");
+Then add the package to `dependencies`:
 
-// 리워드 영상 표시
-if (TopOnAdvertisement.IsRewardedVideoReady())
+```json
 {
-    TopOnAdvertisement.ShowRewardedVideo();
+  "dependencies": {
+    "com.gameframex.unity.advertisement.topon": "1.2.0"
+  }
 }
 ```
+
 
 ## 이벤트 콜백
 

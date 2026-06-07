@@ -58,53 +58,36 @@ Unity TopOn 廣告 SDK 整合插件，為 GameFrameX 提供完整的廣告解決
 
 ## 快速開始
 
-### 1. 初始化 SDK
+### 安裝
 
-```csharp
-using GameFrameX.Advertisement.TopOn.Runtime;
+編輯 Unity 專案的 `Packages/manifest.json`，添加 `scopedRegistries` 部分：
 
-// 在遊戲啟動時初始化
-TopOnAdvertisement.Initialize("your_app_id", "your_app_key");
-```
-
-### 2. 載入和顯示橫幅廣告
-
-```csharp
-// 載入橫幅廣告
-TopOnAdvertisement.LoadBanner("banner_placement_id");
-
-// 顯示橫幅廣告
-TopOnAdvertisement.ShowBanner();
-
-// 隱藏橫幅廣告
-TopOnAdvertisement.HideBanner();
-```
-
-### 3. 載入和顯示插屏廣告
-
-```csharp
-// 載入插屏廣告
-TopOnAdvertisement.LoadInterstitial("interstitial_placement_id");
-
-// 顯示插屏廣告
-if (TopOnAdvertisement.IsInterstitialReady())
+```json
 {
-    TopOnAdvertisement.ShowInterstitial();
+  "scopedRegistries": [
+    {
+      "name": "GameFrameX",
+      "url": "https://gameframex.upm.alianblank.uk",
+      "scopes": [
+        "com.gameframex"
+      ]
+    }
+  ]
 }
 ```
 
-### 4. 載入和顯示激勵影片
+`scopes` 控制哪些套件透過此註冊表解析。只有以 `com.gameframex` 開頭的套件才會從這個註冊表取得。
 
-```csharp
-// 載入激勵影片
-TopOnAdvertisement.LoadRewardedVideo("rewarded_placement_id");
+Then add the package to `dependencies`:
 
-// 顯示激勵影片
-if (TopOnAdvertisement.IsRewardedVideoReady())
+```json
 {
-    TopOnAdvertisement.ShowRewardedVideo();
+  "dependencies": {
+    "com.gameframex.unity.advertisement.topon": "1.2.0"
+  }
 }
 ```
+
 
 ## 事件回調
 
