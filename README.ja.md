@@ -88,7 +88,6 @@ Then add the package to `dependencies`:
 }
 ```
 
-
 ## イベントコールバック
 
 ```csharp
@@ -191,4 +190,4 @@ A: 以下を確認してください：
 
 ## ライセンス
 
-このプロジェクトはMITライセンスの下で公開されています - 詳細は [LICENSE](LICENSE) ファイルを参照してください
+詳しくは [LICENSE.md](LICENSE.md) をご参照ください。

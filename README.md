@@ -88,7 +88,6 @@ Then add the package to `dependencies`:
 }
 ```
 
-
 ## Event Callbacks
 
 ```csharp
@@ -191,4 +190,4 @@ A: Please check:
 
 ## License
 
-This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
+See [LICENSE.md](LICENSE.md) for license information.
