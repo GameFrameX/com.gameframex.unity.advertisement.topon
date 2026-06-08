@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/compare/1.2.0...1.2.1) (2026-06-08)
+
+
+### Bug Fixes
+
+* 补全包规范文件（LICENSE/CHANGELOG/URL 字段/unity 字段） ([02c673d](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/commit/02c673dbd0842dc25da5a6e49d610b265c400108))
+
 # [1.2.0](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/compare/1.1.0...1.2.0) (2026-05-24)
 
 
