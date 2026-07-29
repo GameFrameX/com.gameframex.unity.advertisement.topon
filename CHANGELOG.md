@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/compare/1.2.1...1.3.0) (2026-07-29)
+
+
+### Features
+
+* 添加依赖项 com.gameframex.unity.advertisement 和 com.gameframex.unity ([ecf1791](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/commit/ecf1791347aded68ae55590a4df430e586a8df0a))
+
 ## [1.2.1](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/compare/1.2.0...1.2.1) (2026-06-08)
 
 
