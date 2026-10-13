@@ -11,6 +11,8 @@ namespace GameFrameX.Advertisement.TopOn.Runtime
         {
             _ = typeof(TopOnAdvertisementManager);
             _ = typeof(TopOnAdvertisementBridgeLink);
+            _ = typeof(TopOnAdvertisementConfig);
+            _ = typeof(TopOnAdvertisementBootstrap);
         }
     }
 }

@@ -18,10 +18,6 @@ namespace GameFrameX.Advertisement.TopOn.Runtime
     public partial class TopOnAdvertisementBridgeLink : MonoBehaviour
     {
         private AndroidJavaObject _topOnActivity;
-        public string m_appIdAndroid;
-        public string m_appKeyAndroid;
-        public string m_appIdiOS;
-        public string m_appKeyiOS;
 
         private void Awake()
         {
