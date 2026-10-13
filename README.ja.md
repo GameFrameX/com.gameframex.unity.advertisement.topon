@@ -40,6 +40,17 @@ Unity TopOn広告SDK統合プラグイン。GameFrameX向けの完全な広告�
 - **リワードビデオ (Rewarded Video)** - ユーザーが動画を最後まで視聴すると報酬を獲得
 - **ネイティブ広告 (Native)** - アプリコンテンツと融合するカスタム広告
 
+## アーキテクチャ
+
+本パッケージは Game Frame X 広告コアの `BaseAdvertisementManager` の**アダプター実装**です。`TopOnAdvertisementBootstrap` が `BeforeSceneLoad` フェーズでコアパッケージの `AdvertisementRegistry` に自己登録します（本パッケージが未インストールの場合はコードがストリッピングされ、登録は行われません。参照することが登録です）。チャネルの初期化は Bootstrap のファクトリクロージャーにより厳密に型指定された設定を注入して行われます。
+
+| クラス | 説明 |
+|--------|------|
+| `TopOnAdvertisementManager` | 広告マネージャー — ロード、表示、ライフサイクル管理 |
+| `TopOnAdvertisementConfig` | appIdAndroid / appKeyAndroid / appIdiOS / appKeyiOS / adUnitId フィールドを含む広告設定。起動時に `TopOnAdvertisementBootstrap.Config` 経由で注入 |
+| `TopOnAdvertisementBootstrap` | チャネル起動登録 — 起動時 `Config` 静的プロパティを持ち、`BeforeSceneLoad` で `AdvertisementRegistry` に自己登録 |
+| `TopOnAdvertisementBridgeLink` | ネイティブブリッジコールバック処理（ブリッジコールバックの役割のみ保持） |
+
 ## インストール方法
 
 ### Unity Package Manager経由でインストール
@@ -90,6 +101,27 @@ Unity TopOn広告SDK統合プラグイン。GameFrameX向けの完全な広告�
    ```
 3. Unity の **Package Manager** で **Git URL** を使用して追加：`https://github.com/gameframex/com.gameframex.unity.advertisement.topon.git`
 4. リポジトリを Unity プロジェクトの `Packages` ディレクトリにクローンしてください。自動的に読み込まれます。
+
+### チャネル登録と設定
+
+起動時（初回の広告呼び出し前）に `TopOnAdvertisementBootstrap.Config` を設定します：
+
+```csharp
+using GameFrameX.Advertisement.TopOn.Runtime;
+
+TopOnAdvertisementBootstrap.Config = new TopOnAdvertisementConfig
+{
+    appIdAndroid = "あなたの Android AppId",
+    appKeyAndroid = "あなたの Android AppKey",
+    appIdiOS = "あなたの iOS AppId",
+    appKeyiOS = "あなたの iOS AppKey",
+    adUnitId = "あなたの広告プレースメントID",
+    isDebug = false,
+};
+```
+
+- 本パッケージは `TopOnAdvertisementBootstrap` 経由で `AdvertisementRegistry` に自己登録します。チャネル定数は `ChannelId = "topon"` です；
+- csj チャネルと併用する場合は、`AdvertisementRegistry.ResolveManager("topon")` で明示的にルーティングし手動選択できます。
 ## イベントコールバック
 
 ```csharp
@@ -179,6 +211,11 @@ A: 以下を確認してください：
 - ProGuard設定
 
 ## 変更履歴
+
+### v2.0.0
+
+- チャネルは `TopOnAdvertisementBootstrap` により `BeforeSceneLoad` フェーズでコアパッケージの `AdvertisementRegistry` に自己登録する方式に変更。設定は起動時に `TopOnAdvertisementBootstrap.Config` 経由で注入
+- **破壊的変更**：appId / appKey をシーン上の `TopOnAdvertisementBridgeLink` のシリアライズフィールドから `TopOnAdvertisementBootstrap.Config` へ移行。BridgeLink はブリッジコールバックの役割のみ保持し、既存プロジェクトでは設定の手動移行が必要です
 
 ### v1.1.0
 

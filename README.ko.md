@@ -40,6 +40,17 @@ Unity TopOn 광고 SDK 통합 플러그인. GameFrameX를 위한 완전한 광�
 - **리워드 영상 (Rewarded Video)** - 사용자가 전체 영상을 시청한 후 보상 획득
 - **네이티브 광고 (Native)** - 앱 콘텐츠와 융합되는 맞춤형 광고
 
+## 아키텍처
+
+이 패키지는 Game Frame X 광고 코어의 `BaseAdvertisementManager` **어댑터 구현**입니다. `TopOnAdvertisementBootstrap`가 `BeforeSceneLoad` 단계에서 코어 패키지의 `AdvertisementRegistry`에 자동 등록합니다(이 패키지가 설치되지 않으면 코드가 스트리핑되어 등록이 일어나지 않습니다. 참조가 곧 등록입니다). 채널 초기화는 Bootstrap 팩토리 클로저가 강타입 설정을 주입하여 수행합니다.
+
+| 클래스 | 설명 |
+|--------|------|
+| `TopOnAdvertisementManager` | 광고 관리자 — 로드, 표시 및 수명 주기 관리 |
+| `TopOnAdvertisementConfig` | appIdAndroid / appKeyAndroid / appIdiOS / appKeyiOS / adUnitId 필드가 포함된 광고 설정. 시작 시 `TopOnAdvertisementBootstrap.Config`를 통해 주입 |
+| `TopOnAdvertisementBootstrap` | 채널 부트스트랩 등록 — 시작 시점 `Config` 정적 속성을 제공하며 `BeforeSceneLoad`에서 `AdvertisementRegistry`에 자동 등록 |
+| `TopOnAdvertisementBridgeLink` | 네이티브 브릿지 콜백 처리(브릿지 콜백 역할만 유지) |
+
 ## 설치 방법
 
 ### Unity Package Manager를 통한 설치
@@ -90,6 +101,27 @@ Unity TopOn 광고 SDK 통합 플러그인. GameFrameX를 위한 완전한 광�
    ```
 3. Unity의 **Package Manager**에서 **Git URL**을 사용하여 추가: `https://github.com/gameframex/com.gameframex.unity.advertisement.topon.git`
 4. 리포지토리를 Unity 프로젝트의 `Packages` 디렉토리에 클론하세요. 자동으로 로드됩니다.
+
+### 채널 등록 및 설정
+
+시작 시점(첫 광고 호출 전)에 `TopOnAdvertisementBootstrap.Config`를 할당합니다:
+
+```csharp
+using GameFrameX.Advertisement.TopOn.Runtime;
+
+TopOnAdvertisementBootstrap.Config = new TopOnAdvertisementConfig
+{
+    appIdAndroid = "자신의 Android AppId",
+    appKeyAndroid = "자신의 Android AppKey",
+    appIdiOS = "자신의 iOS AppId",
+    appKeyiOS = "자신의 iOS AppKey",
+    adUnitId = "자신의 광고 소재 ID",
+    isDebug = false,
+};
+```
+
+- 이 패키지는 `TopOnAdvertisementBootstrap`를 통해 `AdvertisementRegistry`에 자동 등록되며, 채널 상수는 `ChannelId = "topon"`입니다;
+- csj 채널과 함께 설치한 경우 `AdvertisementRegistry.ResolveManager("topon")`로 명시적 라우팅하여 수동 선택할 수 있습니다.
 ## 이벤트 콜백
 
 ```csharp
@@ -179,6 +211,11 @@ A: 다음을 확인하세요:
 - ProGuard 설정
 
 ## 변경 로그
+
+### v2.0.0
+
+- 채널이 `TopOnAdvertisementBootstrap`를 통해 `BeforeSceneLoad` 단계에서 코어 패키지의 `AdvertisementRegistry`에 자동 등록되도록 변경. 설정은 시작 시 `TopOnAdvertisementBootstrap.Config`를 통해 주입
+- **파괴적 변경**: appId / appKey가 씬의 `TopOnAdvertisementBridgeLink` 직렬화 필드에서 `TopOnAdvertisementBootstrap.Config`로 이전되었습니다. BridgeLink는 브릿지 콜백 역할만 유지하며, 기존 프로젝트는 설정을 수동으로 옮겨야 합니다
 
 ### v1.1.0
 

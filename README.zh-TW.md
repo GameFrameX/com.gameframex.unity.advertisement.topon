@@ -40,6 +40,17 @@ Unity TopOn 廣告 SDK 整合插件，為 GameFrameX 提供完整的廣告解決
 - **激勵影片 (Rewarded Video)** - 使用者觀看完整影片後獲得獎勵
 - **原生廣告 (Native)** - 與應用內容融合的自訂廣告
 
+## 架構概覽
+
+本套件是 Game Frame X 廣告核心 `BaseAdvertisementManager` 的**適配器實現**。透過 `TopOnAdvertisementBootstrap` 在 `BeforeSceneLoad` 階段自註冊進主套件 `AdvertisementRegistry`（未安裝本套件時代碼被裁剪，註冊不會發生；引用即註冊）；渠道初始化由 Bootstrap 工廠閉包注入強型別配置。
+
+| 類別 | 說明 |
+|------|------|
+| `TopOnAdvertisementManager` | 廣告管理器 — 載入、展示及生命週期管理 |
+| `TopOnAdvertisementConfig` | 廣告配置，包含 appIdAndroid / appKeyAndroid / appIdiOS / appKeyiOS / adUnitId 欄位，經 `TopOnAdvertisementBootstrap.Config` 在啟動期注入 |
+| `TopOnAdvertisementBootstrap` | 渠道啟動註冊 — 含啟動期 `Config` 靜態屬性，`BeforeSceneLoad` 階段自註冊進 `AdvertisementRegistry` |
+| `TopOnAdvertisementBridgeLink` | 原生橋接回調處理（僅保留橋接回調職責） |
+
 ## 安裝方式
 
 ### 透過 Unity Package Manager 安裝
@@ -90,6 +101,27 @@ Unity TopOn 廣告 SDK 整合插件，為 GameFrameX 提供完整的廣告解決
    ```
 3. 在 Unity 的 `Package Manager` 中使用 `Git URL` 的方式添加庫，地址為：`https://github.com/gameframex/com.gameframex.unity.advertisement.topon.git`
 4. 直接下載倉庫放置到 Unity 專案的 `Packages` 目錄下，會自動載入識別。
+
+### 渠道註冊與配置
+
+在啟動期（首次廣告呼叫前）對 `TopOnAdvertisementBootstrap.Config` 賦值：
+
+```csharp
+using GameFrameX.Advertisement.TopOn.Runtime;
+
+TopOnAdvertisementBootstrap.Config = new TopOnAdvertisementConfig
+{
+    appIdAndroid = "你的 Android AppId",
+    appKeyAndroid = "你的 Android AppKey",
+    appIdiOS = "你的 iOS AppId",
+    appKeyiOS = "你的 iOS AppKey",
+    adUnitId = "你的廣告位ID",
+    isDebug = false,
+};
+```
+
+- 本套件透過 `TopOnAdvertisementBootstrap` 自註冊進 `AdvertisementRegistry`，渠道常量 `ChannelId = "topon"`；
+- 與 csj 渠道同裝時，可用 `AdvertisementRegistry.ResolveManager("topon")` 顯式路由做人工選型。
 ## 事件回調
 
 ```csharp
@@ -179,6 +211,11 @@ A: 請檢查：
 - ProGuard 配置
 
 ## 更新日誌
+
+### v2.0.0
+
+- 渠道改為透過 `TopOnAdvertisementBootstrap` 在 `BeforeSceneLoad` 階段自註冊進主套件 `AdvertisementRegistry`，配置經 `TopOnAdvertisementBootstrap.Config` 啟動期注入
+- **破壞性變更**：appId / appKey 已從場景 `TopOnAdvertisementBridgeLink` 序列化欄位遷移到 `TopOnAdvertisementBootstrap.Config`，BridgeLink 僅保留橋接回調職責，既有工程需手動搬移配置
 
 ### v1.1.0
 

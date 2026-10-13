@@ -40,6 +40,17 @@ Unity TopOn Ad SDK integration plugin, providing a complete advertising solution
 - **Rewarded Video** - Users receive rewards after watching the complete video
 - **Native** - Custom ads that blend with app content
 
+## Architecture
+
+This package is an **adapter implementation** of `BaseAdvertisementManager` from the Game Frame X Advertisement core. It registers itself into the core package's `AdvertisementRegistry` via `TopOnAdvertisementBootstrap` during the `BeforeSceneLoad` phase (if this package is not installed the code is stripped and no registration happens; referencing the package is the registration). Channel initialization is performed by the Bootstrap factory closure, which injects the strongly typed configuration.
+
+| Class | Description |
+|-------|-------------|
+| `TopOnAdvertisementManager` | Ad manager — load, show, and lifecycle |
+| `TopOnAdvertisementConfig` | Configuration with appIdAndroid / appKeyAndroid / appIdiOS / appKeyiOS / adUnitId fields, injected at startup via `TopOnAdvertisementBootstrap.Config` |
+| `TopOnAdvertisementBootstrap` | Channel bootstrap registration — exposes a startup-time `Config` static property and self-registers into `AdvertisementRegistry` at `BeforeSceneLoad` |
+| `TopOnAdvertisementBridgeLink` | Native bridge callback handling (bridge callbacks only) |
+
 ## Quick Start
 
 ### Installation
@@ -74,6 +85,27 @@ Choose one of the following methods:
    ```
 3. Use **Package Manager** in Unity with **Git URL**: `https://github.com/gameframex/com.gameframex.unity.advertisement.topon.git`
 4. Clone the repository into your Unity project's `Packages` directory. It will be loaded automatically.
+
+### Channel Registration & Configuration
+
+Assign `TopOnAdvertisementBootstrap.Config` at startup (before the first ad call):
+
+```csharp
+using GameFrameX.Advertisement.TopOn.Runtime;
+
+TopOnAdvertisementBootstrap.Config = new TopOnAdvertisementConfig
+{
+    appIdAndroid = "your Android AppId",
+    appKeyAndroid = "your Android AppKey",
+    appIdiOS = "your iOS AppId",
+    appKeyiOS = "your iOS AppKey",
+    adUnitId = "your ad unit id",
+    isDebug = false,
+};
+```
+
+- This package self-registers into `AdvertisementRegistry` via `TopOnAdvertisementBootstrap`; the channel constant is `ChannelId = "topon"`;
+- When installed alongside the csj channel, use `AdvertisementRegistry.ResolveManager("topon")` for explicit routing / manual selection.
 ## Event Callbacks
 
 ```csharp
@@ -163,6 +195,11 @@ A: Please check:
 - ProGuard configuration
 
 ## Changelog
+
+### v2.0.0
+
+- The channel now self-registers into the core package's `AdvertisementRegistry` via `TopOnAdvertisementBootstrap` at `BeforeSceneLoad`; configuration is injected at startup via `TopOnAdvertisementBootstrap.Config`
+- **Breaking change**: appId / appKey have been migrated from the scene `TopOnAdvertisementBridgeLink` serialized fields to `TopOnAdvertisementBootstrap.Config`; the BridgeLink now only keeps its bridge callback responsibilities, and existing projects must migrate the configuration manually
 
 ### v1.1.0
 

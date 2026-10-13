@@ -40,6 +40,17 @@ Unity TopOn广告SDK集成插件，为 GameFrameX 提供完整的广告解决方
 - **激励视频 (Rewarded Video)** - 用户观看完整视频后获得奖励
 - **原生广告 (Native)** - 与应用内容融合的自定义广告
 
+## 架构概览
+
+本包是 Game Frame X 广告核心 `BaseAdvertisementManager` 的**适配器实现**。通过 `TopOnAdvertisementBootstrap` 在 `BeforeSceneLoad` 阶段自注册进主包 `AdvertisementRegistry`（未安装本包时代码被裁剪，注册不会发生；引用即注册）；渠道初始化由 Bootstrap 工厂闭包注入强类型配置。
+
+| 类 | 说明 |
+|----|------|
+| `TopOnAdvertisementManager` | 广告管理器 — 加载、展示及生命周期管理 |
+| `TopOnAdvertisementConfig` | 广告配置，包含 appIdAndroid / appKeyAndroid / appIdiOS / appKeyiOS / adUnitId 字段，经 `TopOnAdvertisementBootstrap.Config` 在启动期注入 |
+| `TopOnAdvertisementBootstrap` | 渠道启动注册 — 含启动期 `Config` 静态属性，`BeforeSceneLoad` 阶段自注册进 `AdvertisementRegistry` |
+| `TopOnAdvertisementBridgeLink` | 原生桥接回调处理（仅保留桥接回调职责） |
+
 ## 安装方式
 
 ### 通过Unity Package Manager安装
@@ -90,6 +101,27 @@ Unity TopOn广告SDK集成插件，为 GameFrameX 提供完整的广告解决方
    ```
 3. 在 Unity 的 `Package Manager` 中使用 `Git URL` 的方式添加库，地址为：`https://github.com/gameframex/com.gameframex.unity.advertisement.topon.git`
 4. 直接下载仓库放置到 Unity 项目的 `Packages` 目录下，会自动加载识别。
+
+### 渠道注册与配置
+
+在启动期（首次广告调用前）对 `TopOnAdvertisementBootstrap.Config` 赋值：
+
+```csharp
+using GameFrameX.Advertisement.TopOn.Runtime;
+
+TopOnAdvertisementBootstrap.Config = new TopOnAdvertisementConfig
+{
+    appIdAndroid = "你的 Android AppId",
+    appKeyAndroid = "你的 Android AppKey",
+    appIdiOS = "你的 iOS AppId",
+    appKeyiOS = "你的 iOS AppKey",
+    adUnitId = "你的广告位ID",
+    isDebug = false,
+};
+```
+
+- 本包通过 `TopOnAdvertisementBootstrap` 自注册进 `AdvertisementRegistry`，渠道常量 `ChannelId = "topon"`；
+- 与 csj 渠道同装时，可用 `AdvertisementRegistry.ResolveManager("topon")` 显式路由做人工选型。
 ## 事件回调
 
 ```csharp
@@ -179,6 +211,11 @@ A: 请检查：
 - ProGuard配置
 
 ## 更新日志
+
+### v2.0.0
+
+- 渠道改为通过 `TopOnAdvertisementBootstrap` 在 `BeforeSceneLoad` 阶段自注册进主包 `AdvertisementRegistry`，配置经 `TopOnAdvertisementBootstrap.Config` 启动期注入
+- **破坏性变更**：appId / appKey 已从场景 `TopOnAdvertisementBridgeLink` 序列化字段迁移到 `TopOnAdvertisementBootstrap.Config`，BridgeLink 仅保留桥接回调职责，既有工程需手动搬移配置
 
 ### v1.1.0
 
