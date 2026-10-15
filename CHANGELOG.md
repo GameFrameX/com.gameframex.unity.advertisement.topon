@@ -1,3 +1,19 @@
+# [2.0.0](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/compare/1.3.0...2.0.0) (2026-10-15)
+
+
+### Features
+
+* **advertisement.topon:** 适配 GameFrameX 3.0.0 ([53b7950](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/commit/53b7950634d5b44149f8f28fa0e73e749bc3bba1))
+* **advertisement:** 引入启动期配置注入模型 ([3214694](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/commit/3214694cac1220f7230c042b8a0edfb8ebe1f5ff))
+
+
+### BREAKING CHANGES
+
+* **advertisement:** TopOnAdvertisementBridgeLink 上的
+m_appIdAndroid / m_appKeyAndroid / m_appIdiOS / m_appKeyiOS
+四个序列化字段被移除，应用配置已迁移到
+TopOnAdvertisementBootstrap.Config；既有工程需手动迁移。
+
 # [1.3.0](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/compare/1.2.1...1.3.0) (2026-07-29)
 
 
