@@ -22,7 +22,7 @@ namespace GameFrameX.Advertisement.TopOn.Runtime
         private void Awake()
         {
             name = "TopOnAdvertisementBridgeLink";
-            DontDestroyOnLoad(gameObject);
+            UnityEngine.Object.DontDestroyOnLoad(gameObject);
             InitializeAndroid();
         }
 
