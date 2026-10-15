@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/compare/2.0.0...2.0.1) (2026-10-15)
+
+
+### Bug Fixes
+
+* **advertisement.topon:** 显式限定 DontDestroyOnLoad 调用 ([2c87f18](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/commit/2c87f188146bfdd7c88590cd4f90b62a6c3ee790))
+
 # [2.0.0](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/compare/1.3.0...2.0.0) (2026-10-15)
 
 
