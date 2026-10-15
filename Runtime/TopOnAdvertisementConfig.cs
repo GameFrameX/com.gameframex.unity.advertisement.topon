@@ -29,7 +29,6 @@
 
 using System;
 using GameFrameX.Advertisement.Runtime;
-using UnityEngine.Scripting;
 
 namespace GameFrameX.Advertisement.TopOn.Runtime
 {
@@ -40,38 +39,38 @@ namespace GameFrameX.Advertisement.TopOn.Runtime
     /// appId / appKey 由场景 <c>TopOnAdvertisementBridgeLink</c> 上的序列化字段迁移而来，
     /// 经 <see cref="TopOnAdvertisementBootstrap"/> 的工厂闭包注入渠道管理器；BridgeLink 仅保留桥接回调职责。
     /// </remarks>
-    [Preserve]
+    [UnityEngine.Scripting.Preserve]
     [Serializable]
     public class TopOnAdvertisementConfig : AdvertisementConfig
     {
         /// <summary>
         /// Android 平台 AppId。
         /// </summary>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public string appIdAndroid;
 
         /// <summary>
         /// Android 平台 AppKey。
         /// </summary>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public string appKeyAndroid;
 
         /// <summary>
         /// iOS 平台 AppId。
         /// </summary>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public string appIdiOS;
 
         /// <summary>
         /// iOS 平台 AppKey。
         /// </summary>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public string appKeyiOS;
 
         /// <summary>
         /// 广告位ID。
         /// </summary>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public string adUnitId;
     }
 }

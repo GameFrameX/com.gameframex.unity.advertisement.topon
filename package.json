@@ -1,12 +1,12 @@
 {
   "name": "com.gameframex.unity.advertisement.topon",
   "displayName": "Game Frame X Advertisement (TopOn)",
-  "category": "Game Framework X",
-  "description": "Game Frame X Advertisement Component",
+  "category": "Game Frame X",
+  "description": "GameFrameX Advertisement TopOn — TopOn ad aggregation adapter for GameFrameX Advertisement on Android and iOS. Implements BaseAdvertisementManager as TopOnAdvertisementManager supporting banner, interstitial, rewarded video and native ads, with complete ad event callbacks, built-in error handling and retry. TopOnAdvertisementBootstrap self-registers the channel into AdvertisementRegistry at BeforeSceneLoad and injects strongly typed config (per-platform appId/appKey plus adUnitId); native bridge callbacks are handled by TopOnAdvertisementBridgeLink. Docs: https://gameframex.doc.alianblank.com\n\nGameFrameX Advertisement TopOn — GameFrameX 广告组件的 TopOn 聚合广告渠道包，支持 Android 与 iOS。以 TopOnAdvertisementManager 实现 BaseAdvertisementManager，支持横幅、插屏、激励视频与原生广告，提供完整的广告事件回调、错误处理与重试机制。TopOnAdvertisementBootstrap 在 BeforeSceneLoad 阶段自注册进 AdvertisementRegistry，注入含分平台 appId/appKey 与 adUnitId 的强类型配置；原生桥接回调由 TopOnAdvertisementBridgeLink 处理。文档：https://gameframex.doc.alianblank.com",
   "version": "1.3.0",
   "unity": "2019.4",
   "keywords": [
-    "Game Framework X"
+    "Game Frame X"
   ],
   "repository": {
     "name": "com.gameframex.unity.advertisement.topon",
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "com.gameframex.unity.advertisement": "1.5.1",
-    "com.gameframex.unity": "2.5.1"
+    "com.gameframex.unity": "3.0.0"
   },
   "devDependencies": {
     "semantic-release": "^24.2.0",

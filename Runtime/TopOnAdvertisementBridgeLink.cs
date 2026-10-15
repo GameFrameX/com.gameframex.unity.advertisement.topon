@@ -56,6 +56,7 @@ namespace GameFrameX.Advertisement.TopOn.Runtime
         /// <param name="appId">应用ID</param>
         /// <param name="appKey">应用密钥</param>
         /// <param name="isTest">是否是测试模式</param>
+        [UnityEngine.Scripting.Preserve]
         public void InitializeSDK(string appId, string appKey, bool isTest = false)
         {
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -311,6 +312,7 @@ namespace GameFrameX.Advertisement.TopOn.Runtime
             }
         }
 
+        [UnityEngine.Scripting.Preserve]
         public void PlayRewardedVideoAd(string unitId, Action<bool> playResult, string customData)
         {
             if (IsAdReady(unitId, "reward"))

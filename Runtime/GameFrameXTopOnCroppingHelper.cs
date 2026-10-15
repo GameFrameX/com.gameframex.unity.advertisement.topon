@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.Scripting;
 
 namespace GameFrameX.Advertisement.TopOn.Runtime
 {
-    [Preserve]
+    [UnityEngine.Scripting.Preserve]
     public class GameFrameXTopOnCroppingHelper : MonoBehaviour
     {
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         private void Start()
         {
             _ = typeof(TopOnAdvertisementManager);
