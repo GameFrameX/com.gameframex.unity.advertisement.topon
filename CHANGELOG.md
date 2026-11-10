@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/compare/2.0.1...2.0.2) (2026-11-10)
+
+
+### Bug Fixes
+
+* **advertisement.topon:** 添加完整 link.xml 防代码裁剪保护 ([443d324](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/commit/443d324d5e8639c1a93f462bab5b300caefef1de))
+
 ## [2.0.1](https://github.com/gameframex/com.gameframex.unity.advertisement.topon/compare/2.0.0...2.0.1) (2026-10-15)
 
 
